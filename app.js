@@ -17,7 +17,28 @@ window.onload = () => {
     }
     // For each todo in the todos array, add it to the DOM
     todos.forEach(todo => addTodo(todo));
+
+
+    //retriving the values form the COOKIES
+    let cookies = document.cookie.split(';');
+    console.log(cookies)
+    // console.log(cookies)
+    var cookiesValue = null;
+    for(var cookie of cookies){
+        console.log(cookie);
+        cookie = cookie.trim();
+        console.log(cookie);
+
+        if(cookie.startsWith("Name=")){
+            cookiesValue = cookie.substring("Name=".length, cookie.length);
+        }
+    }
+
+    console.log(cookiesValue);
 };
+
+
+
 
 // this add even listner to add the new todos
 button.addEventListener('click', () => {
@@ -25,6 +46,13 @@ button.addEventListener('click', () => {
     todos.push(input.value);
     // Saving the updated todos array to localStorage
     localStorage.setItem('todos', JSON.stringify(todos));
+
+
+    //storing in cookies
+        document.cookie = `${JSON.stringify(todos)}; expires=Sun, 07 july 2024 12:00:00 UTC;`;
+
+
+
     // Adding the new todo to the DOM
     addTodo(input.value);
     // Clear the input field
