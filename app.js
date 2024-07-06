@@ -19,22 +19,24 @@ window.onload = () => {
     todos.forEach(todo => addTodo(todo));
 
 
-    //retriving the values form the COOKIES
-    let cookies = document.cookie.split(';');
-    console.log(cookies)
+
+    // //retriving the values form the COOKIES
+    // let cookies = document.cookie.split(';');
     // console.log(cookies)
-    var cookiesValue = null;
-    for(var cookie of cookies){
-        console.log(cookie);
-        cookie = cookie.trim();
-        console.log(cookie);
+    // // console.log(cookies)
+    // var cookiesValue = null;
+    // for(var cookie of cookies){
+    //     console.log(cookie);
+    //     cookie = cookie.trim();
+    //     console.log(cookie);
 
-        if(cookie.startsWith("Name=")){
-            cookiesValue = cookie.substring("Name=".length, cookie.length);
-        }
-    }
+    //     if(cookie.startsWith("Name=")){
+    //         cookiesValue = cookie.substring("Name=".length, cookie.length);
+    //     }
+    // }
 
-    console.log(cookiesValue);
+    // console.log(cookiesValue);
+    
 };
 
 
