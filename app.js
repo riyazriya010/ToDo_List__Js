@@ -6,11 +6,11 @@ let input = document.getElementById('input');
 // Initialize an empty array to store todos
 let todos = [];
 
-// When the window loads, retrieve stored todos from localStorage
+// While the window loading the datas were retrive from the localstorage
 window.onload = () => {
-    // Retrieve the stored todos from localStorage and parse them as JSON
+    // Taking the stored todos from the local storage
     const storedTodos = JSON.parse(localStorage.getItem('todos'));
-    // Check if the parsed storedTodos is an array
+    // checking the parsed todos were array or not
     if (Array.isArray(storedTodos)) {
         // If it is, assign it to the todos array
         todos = storedTodos;
@@ -19,13 +19,13 @@ window.onload = () => {
     todos.forEach(todo => addTodo(todo));
 };
 
-// Add an event listener to the button to handle adding new todos
+// this add even listner to add the new todos
 button.addEventListener('click', () => {
     // Push the value of the input field to the todos array
     todos.push(input.value);
-    // Save the updated todos array to localStorage
+    // Saving the updated todos array to localStorage
     localStorage.setItem('todos', JSON.stringify(todos));
-    // Add the new todo to the DOM
+    // Adding the new todo to the DOM
     addTodo(input.value);
     // Clear the input field
     input.value = '';
@@ -57,7 +57,7 @@ function addTodo(todo) {
     });
 }
 
-// Function to remove a todo from the array and update localStorage
+// Function to remove a todo from the array and update local storage
 function remove(todo) {
     // Find the index of the todo in the todos array
     let index = todos.indexOf(todo);
@@ -66,6 +66,6 @@ function remove(todo) {
         // Remove the todo from the array
         todos.splice(index, 1);
     }
-    // Save the updated todos array to localStorage
+    // Save the updated todos array to local storage
     localStorage.setItem('todos', JSON.stringify(todos));
 }
